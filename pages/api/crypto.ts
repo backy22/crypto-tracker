@@ -2,6 +2,10 @@ import axios from 'axios';
 import type { NextApiRequest } from 'next';
 
 export default async function handler(req: NextApiRequest, res: any) {
+  if (process.env.API_KEY === undefined) {
+    return;
+  }
+
   const CRYPTORANKING_BASE_API =
     'https://api.coinranking.com/v2/coin/razxDUgYGNAdQ';
 
